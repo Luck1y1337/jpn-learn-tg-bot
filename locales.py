@@ -151,6 +151,22 @@ TEXTS = {
             "🎉 <b>Спасибо за поддержку!</b> 💛\n\n"
             "Твой донат <b>{amount}⭐️</b> получен."
         ),
+        "adm_only": "⛔️ Команда доступна только администратору.",
+        "adm_bc_enter": (
+            "📢 <b>Рассылка</b>\n\n"
+            "Пришли текст сообщения одним сообщением. "
+            "Оно уйдёт всем пользователям бота."
+        ),
+        "adm_bc_empty": "⚠️ Пустое сообщение. Пришли текст рассылки.",
+        "adm_bc_confirm": (
+            "📢 Разослать это сообщение <b>{count}</b> пользователям?\n\n"
+            "— — —\n{preview}"
+        ),
+        "adm_btn_bc_send": "✅ Разослать",
+        "adm_btn_bc_cancel": "✖️ Отмена",
+        "adm_bc_started": "⏳ Рассылка запущена…",
+        "adm_bc_done": "✅ Готово. Отправлено: <b>{sent}</b>, ошибок: <b>{failed}</b>.",
+        "adm_bc_cancelled": "✖️ Рассылка отменена.",
     },
     "en": {
         "choose_language": (
@@ -301,6 +317,22 @@ TEXTS = {
             "🎉 <b>Thank you for your support!</b> 💛\n\n"
             "Your donation of <b>{amount}⭐️</b> was received."
         ),
+        "adm_only": "⛔️ This command is available to the admin only.",
+        "adm_bc_enter": (
+            "📢 <b>Broadcast</b>\n\n"
+            "Send the message text in a single message. "
+            "It will be sent to all bot users."
+        ),
+        "adm_bc_empty": "⚠️ Empty message. Send the broadcast text.",
+        "adm_bc_confirm": (
+            "📢 Send this message to <b>{count}</b> users?\n\n"
+            "— — —\n{preview}"
+        ),
+        "adm_btn_bc_send": "✅ Send",
+        "adm_btn_bc_cancel": "✖️ Cancel",
+        "adm_bc_started": "⏳ Broadcast started…",
+        "adm_bc_done": "✅ Done. Sent: <b>{sent}</b>, failed: <b>{failed}</b>.",
+        "adm_bc_cancelled": "✖️ Broadcast cancelled.",
     },
     "uz": {
         "choose_language": (
@@ -451,6 +483,22 @@ TEXTS = {
             "🎉 <b>Qo'llab-quvvatlaganingiz uchun rahmat!</b> 💛\n\n"
             "<b>{amount}⭐️</b> donatingiz qabul qilindi."
         ),
+        "adm_only": "⛔️ Bu buyruq faqat administrator uchun.",
+        "adm_bc_enter": (
+            "📢 <b>Ommaviy xabar</b>\n\n"
+            "Xabar matnini bitta xabarda yuboring. "
+            "U botning barcha foydalanuvchilariga jo'natiladi."
+        ),
+        "adm_bc_empty": "⚠️ Bo'sh xabar. Rassilka matnini yuboring.",
+        "adm_bc_confirm": (
+            "📢 Ushbu xabar <b>{count}</b> foydalanuvchiga yuborilsinmi?\n\n"
+            "— — —\n{preview}"
+        ),
+        "adm_btn_bc_send": "✅ Yuborish",
+        "adm_btn_bc_cancel": "✖️ Bekor qilish",
+        "adm_bc_started": "⏳ Ommaviy xabar boshlandi…",
+        "adm_bc_done": "✅ Tayyor. Yuborildi: <b>{sent}</b>, xatolar: <b>{failed}</b>.",
+        "adm_bc_cancelled": "✖️ Ommaviy xabar bekor qilindi.",
     },
 }
 

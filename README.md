@@ -48,6 +48,7 @@ aiogram 3.x, aiosqlite, деплой на Railway.
 | `/settings`  | Язык / уровень / время / слов в день   |
 | `/stats`     | Прогресс и стрик                       |
 | `/donate`    | Донат через Telegram Stars             |
+| `/broadcast` | Рассылка всем пользователям (только админ) |
 
 ## Структура проекта
 
@@ -67,7 +68,7 @@ scheduler.py       — ежедневная рассылка (APScheduler)
 seed.py            — загрузка грамматики из JSON в базу
 grammar_points.json — статический набор грамматики
 handlers/          — обработчики команд (start, study, quiz, grammar,
-                     settings, stats, donate)
+                     settings, stats, donate, admin)
 ```
 
 ## Схема базы данных

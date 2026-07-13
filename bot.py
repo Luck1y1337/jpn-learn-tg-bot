@@ -9,7 +9,16 @@ from aiogram.enums import ParseMode
 import database
 import scheduler
 from config import BOT_TOKEN
-from handlers import donate, grammar, quiz, settings, start, stats, study
+from handlers import (
+    admin,
+    donate,
+    grammar,
+    quiz,
+    settings,
+    start,
+    stats,
+    study,
+)
 from seed import seed_grammar
 
 
@@ -35,6 +44,7 @@ async def main():
     dp = Dispatcher()
 
     dp.include_router(start.router)
+    dp.include_router(admin.router)
     dp.include_router(study.router)
     dp.include_router(quiz.router)
     dp.include_router(grammar.router)

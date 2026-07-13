@@ -14,3 +14,7 @@ class SettingsStates(StatesGroup):
 class DonateStates(StatesGroup):
     waiting_custom_amount = State()
     waiting_comment = State()
+
+
+class AdminStates(StatesGroup):
+    waiting_broadcast = State()

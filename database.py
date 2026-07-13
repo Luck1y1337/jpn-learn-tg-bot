@@ -234,6 +234,17 @@ async def count_users():
         return row[0]
 
 
+async def get_all_user_ids():
+    """Возвращает список всех user_id для рассылки."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        cursor = await db.execute("SELECT user_id FROM users")
+        rows = await cursor.fetchall()
+        result = []
+        for row in rows:
+            result.append(row[0])
+        return result
+
+
 # ---------------------------------------------------------------------------
 # Кэш кандзи
 # ---------------------------------------------------------------------------

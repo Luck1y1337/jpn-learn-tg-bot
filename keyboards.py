@@ -221,3 +221,20 @@ def back_to_amounts_keyboard(lang):
         ]
     ]
     return InlineKeyboardMarkup(inline_keyboard=buttons)
+
+
+def broadcast_confirm_keyboard(lang):
+    """Подтверждение админской рассылки."""
+    buttons = [
+        [
+            InlineKeyboardButton(
+                text=get_text(lang, "adm_btn_bc_send"),
+                callback_data="admin:bc:send",
+            ),
+            InlineKeyboardButton(
+                text=get_text(lang, "adm_btn_bc_cancel"),
+                callback_data="admin:bc:cancel",
+            ),
+        ]
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
