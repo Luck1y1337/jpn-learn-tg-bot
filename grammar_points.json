@@ -1,0 +1,242 @@
+[
+  {
+    "level": "N5",
+    "title": "〜は〜です",
+    "structure": "Существительное + は + Существительное + です",
+    "explanation_ru": "Базовое утверждение «A — это B». Частица は отмечает тему предложения, です — вежливая связка.",
+    "explanation_en": "Basic statement 'A is B'. The particle は marks the topic, です is the polite copula.",
+    "explanation_uz": "Asosiy tasdiq gap: «A — bu B». は yuklamasi mavzuni bildiradi, です esa muloyim bog'lovchi.",
+    "examples": [
+      {"jp": "私は学生です。", "ru": "Я студент.", "en": "I am a student.", "uz": "Men talabaman."},
+      {"jp": "これは本です。", "ru": "Это книга.", "en": "This is a book.", "uz": "Bu kitob."}
+    ]
+  },
+  {
+    "level": "N5",
+    "title": "〜を + глагол",
+    "structure": "Существительное + を + переходный глагол",
+    "explanation_ru": "Частица を отмечает прямое дополнение — объект, на который направлено действие.",
+    "explanation_en": "The particle を marks the direct object — the thing the action is done to.",
+    "explanation_uz": "を yuklamasi to'ldiruvchini — harakat yo'naltirilgan narsani bildiradi.",
+    "examples": [
+      {"jp": "水を飲みます。", "ru": "Я пью воду.", "en": "I drink water.", "uz": "Men suv ichaman."},
+      {"jp": "本を読みます。", "ru": "Я читаю книгу.", "en": "I read a book.", "uz": "Men kitob o'qiyman."}
+    ]
+  },
+  {
+    "level": "N5",
+    "title": "〜ますか (вопрос)",
+    "structure": "Глагол в форме на ます + か",
+    "explanation_ru": "Частица か в конце предложения превращает утверждение в вопрос.",
+    "explanation_en": "The particle か at the end of a sentence turns a statement into a question.",
+    "explanation_uz": "Gap oxiridagi か yuklamasi tasdiq gapni so'roq gapga aylantiradi.",
+    "examples": [
+      {"jp": "映画を見ますか。", "ru": "Вы будете смотреть фильм?", "en": "Will you watch a movie?", "uz": "Kino ko'rasizmi?"},
+      {"jp": "これは何ですか。", "ru": "Что это?", "en": "What is this?", "uz": "Bu nima?"}
+    ]
+  },
+  {
+    "level": "N5",
+    "title": "〜たいです",
+    "structure": "Основа глагола на ます + たいです",
+    "explanation_ru": "Выражает желание говорящего сделать что-либо: «хочу сделать».",
+    "explanation_en": "Expresses the speaker's desire to do something: 'want to do'.",
+    "explanation_uz": "So'zlovchining biror ishni qilish istagini bildiradi: «qilishni xohlayman».",
+    "examples": [
+      {"jp": "日本へ行きたいです。", "ru": "Я хочу поехать в Японию.", "en": "I want to go to Japan.", "uz": "Men Yaponiyaga borishni xohlayman."},
+      {"jp": "寿司を食べたいです。", "ru": "Я хочу поесть суши.", "en": "I want to eat sushi.", "uz": "Men sushi yeyishni xohlayman."}
+    ]
+  },
+  {
+    "level": "N5",
+    "title": "〜があります／います",
+    "structure": "Существительное + が + あります (неодуш.) / います (одуш.)",
+    "explanation_ru": "Выражает существование: あります — для неодушевлённых предметов, います — для людей и животных.",
+    "explanation_en": "Expresses existence: あります for inanimate things, います for living beings.",
+    "explanation_uz": "Mavjudlikni bildiradi: あります jonsiz narsalar uchun, います jonli mavjudotlar uchun.",
+    "examples": [
+      {"jp": "机の上に本があります。", "ru": "На столе есть книга.", "en": "There is a book on the desk.", "uz": "Stol ustida kitob bor."},
+      {"jp": "公園に犬がいます。", "ru": "В парке есть собака.", "en": "There is a dog in the park.", "uz": "Bog'da it bor."}
+    ]
+  },
+  {
+    "level": "N4",
+    "title": "〜てもいいです",
+    "structure": "Глагол в て-форме + もいいです",
+    "explanation_ru": "Даёт или запрашивает разрешение: «можно сделать».",
+    "explanation_en": "Gives or asks for permission: 'may do / it's okay to do'.",
+    "explanation_uz": "Ruxsat beradi yoki so'raydi: «qilsa bo'ladi».",
+    "examples": [
+      {"jp": "ここに座ってもいいですか。", "ru": "Можно здесь сесть?", "en": "May I sit here?", "uz": "Bu yerga o'tirsam bo'ladimi?"},
+      {"jp": "写真を撮ってもいいです。", "ru": "Можно фотографировать.", "en": "You may take photos.", "uz": "Rasmga olsa bo'ladi."}
+    ]
+  },
+  {
+    "level": "N4",
+    "title": "〜なければならない",
+    "structure": "Глагол в отрицательной основе + なければならない",
+    "explanation_ru": "Выражает обязанность или необходимость: «нужно / необходимо сделать».",
+    "explanation_en": "Expresses obligation or necessity: 'must do / have to do'.",
+    "explanation_uz": "Majburiyat yoki zaruratni bildiradi: «qilishim kerak».",
+    "examples": [
+      {"jp": "宿題をしなければならない。", "ru": "Мне нужно сделать домашнее задание.", "en": "I have to do my homework.", "uz": "Men uy vazifasini bajarishim kerak."},
+      {"jp": "早く起きなければならない。", "ru": "Нужно рано вставать.", "en": "I have to get up early.", "uz": "Erta turishim kerak."}
+    ]
+  },
+  {
+    "level": "N4",
+    "title": "〜たことがあります",
+    "structure": "Глагол в форме на た + ことがあります",
+    "explanation_ru": "Говорит об опыте: «доводилось делать что-либо (хотя бы раз в прошлом)».",
+    "explanation_en": "Talks about experience: 'have done something (at least once)'.",
+    "explanation_uz": "Tajriba haqida gapiradi: «qilib ko'rganman (kamida bir marta)».",
+    "examples": [
+      {"jp": "日本に行ったことがあります。", "ru": "Я бывал в Японии.", "en": "I have been to Japan.", "uz": "Men Yaponiyada bo'lganman."},
+      {"jp": "この映画を見たことがあります。", "ru": "Я смотрел этот фильм.", "en": "I have seen this movie.", "uz": "Men bu kinoni ko'rganman."}
+    ]
+  },
+  {
+    "level": "N4",
+    "title": "〜ようになる",
+    "structure": "Словарная форма глагола + ようになる",
+    "explanation_ru": "Показывает постепенное изменение или появление способности: «стал делать / научился».",
+    "explanation_en": "Shows a gradual change or new ability: 'came to do / became able to'.",
+    "explanation_uz": "Asta-sekin o'zgarish yoki yangi qobiliyatni bildiradi: «qiladigan bo'lib qoldi».",
+    "examples": [
+      {"jp": "日本語が話せるようになりました。", "ru": "Я научился говорить по-японски.", "en": "I became able to speak Japanese.", "uz": "Men yaponcha gapira oladigan bo'lib qoldim."},
+      {"jp": "毎朝走るようになった。", "ru": "Я стал бегать каждое утро.", "en": "I came to run every morning.", "uz": "Men har kuni ertalab yuguradigan bo'lib qoldim."}
+    ]
+  },
+  {
+    "level": "N4",
+    "title": "〜そうです (вид)",
+    "structure": "Основа глагола/прилагательного + そうです",
+    "explanation_ru": "Выражает предположение по внешнему виду: «выглядит так, будто / кажется».",
+    "explanation_en": "Expresses a guess based on appearance: 'looks like / seems'.",
+    "explanation_uz": "Tashqi ko'rinishga qarab taxminni bildiradi: «shunday ko'rinadi».",
+    "examples": [
+      {"jp": "雨が降りそうです。", "ru": "Кажется, пойдёт дождь.", "en": "It looks like it will rain.", "uz": "Yomg'ir yog'adiganga o'xshaydi."},
+      {"jp": "このケーキはおいしそうです。", "ru": "Этот торт выглядит вкусным.", "en": "This cake looks delicious.", "uz": "Bu tort mazali ko'rinadi."}
+    ]
+  },
+  {
+    "level": "N3",
+    "title": "〜ようにする",
+    "structure": "Словарная форма / отрицание глагола + ようにする",
+    "explanation_ru": "Выражает сознательное усилие или привычку: «стараться делать / следить, чтобы».",
+    "explanation_en": "Expresses making a conscious effort or habit: 'try to / make sure to do'.",
+    "explanation_uz": "Ongli harakat yoki odatni bildiradi: «qilishga harakat qilmoq».",
+    "examples": [
+      {"jp": "毎日運動するようにしています。", "ru": "Я стараюсь заниматься спортом каждый день.", "en": "I try to exercise every day.", "uz": "Men har kuni sport bilan shug'ullanishga harakat qilaman."},
+      {"jp": "甘い物を食べないようにする。", "ru": "Стараюсь не есть сладкое.", "en": "I try not to eat sweets.", "uz": "Shirinlik yemaslikka harakat qilaman."}
+    ]
+  },
+  {
+    "level": "N3",
+    "title": "〜はずだ",
+    "structure": "Обычная форма глагола/прилагательного + はずだ",
+    "explanation_ru": "Выражает логичное ожидание: «должно быть / по идее».",
+    "explanation_en": "Expresses a logical expectation: 'should be / is supposed to be'.",
+    "explanation_uz": "Mantiqiy kutilmani bildiradi: «shunday bo'lishi kerak».",
+    "examples": [
+      {"jp": "彼はもう着いたはずだ。", "ru": "Он должен был уже приехать.", "en": "He should have already arrived.", "uz": "U allaqachon yetib kelgan bo'lishi kerak."},
+      {"jp": "この店は今日休みのはずだ。", "ru": "Этот магазин сегодня, по идее, закрыт.", "en": "This shop is supposed to be closed today.", "uz": "Bu do'kon bugun yopiq bo'lishi kerak."}
+    ]
+  },
+  {
+    "level": "N3",
+    "title": "〜させる (побудительный залог)",
+    "structure": "Побудительная форма глагола (させる / せる)",
+    "explanation_ru": "Каузатив: заставлять или позволять кому-либо делать что-либо.",
+    "explanation_en": "Causative: make or let someone do something.",
+    "explanation_uz": "Orttirma nisbat: kimnidir biror ishni qilishga majburlash yoki ruxsat berish.",
+    "examples": [
+      {"jp": "先生は学生に本を読ませた。", "ru": "Учитель заставил учеников читать книгу.", "en": "The teacher made the students read the book.", "uz": "O'qituvchi o'quvchilarga kitob o'qitdi."},
+      {"jp": "子供を公園で遊ばせる。", "ru": "Я позволяю ребёнку играть в парке.", "en": "I let my child play in the park.", "uz": "Men bolamga bog'da o'ynashiga ruxsat beraman."}
+    ]
+  },
+  {
+    "level": "N3",
+    "title": "〜ば (условная форма)",
+    "structure": "Условная форма глагола на ば",
+    "explanation_ru": "Условие: «если сделать A, то B». Часто про общие закономерности.",
+    "explanation_en": "Condition: 'if A happens, then B'. Often for general truths.",
+    "explanation_uz": "Shart: «agar A bo'lsa, B». Ko'pincha umumiy qonuniyatlar uchun.",
+    "examples": [
+      {"jp": "練習すれば上手になります。", "ru": "Если тренироваться, станешь лучше.", "en": "If you practice, you will get better.", "uz": "Mashq qilsang, yaxshi bo'lasan."},
+      {"jp": "安ければ買います。", "ru": "Если дёшево, куплю.", "en": "If it's cheap, I'll buy it.", "uz": "Arzon bo'lsa, sotib olaman."}
+    ]
+  },
+  {
+    "level": "N2",
+    "title": "〜わけではない",
+    "structure": "Обычная форма + わけではない",
+    "explanation_ru": "Мягкое отрицание: «это не значит, что / не то чтобы».",
+    "explanation_en": "Soft negation: 'it doesn't mean that / it's not that'.",
+    "explanation_uz": "Yumshoq inkor: «bu degani emas / unchalik ham emas».",
+    "examples": [
+      {"jp": "嫌いなわけではない。", "ru": "Не то чтобы мне это не нравилось.", "en": "It's not that I dislike it.", "uz": "Yoqmaydi deganim emas."},
+      {"jp": "全部わかるわけではない。", "ru": "Это не значит, что я понимаю всё.", "en": "It doesn't mean I understand everything.", "uz": "Hammasini tushunaman deganim emas."}
+    ]
+  },
+  {
+    "level": "N2",
+    "title": "〜に違いない",
+    "structure": "Обычная форма + に違いない",
+    "explanation_ru": "Сильная уверенность: «наверняка / без сомнения».",
+    "explanation_en": "Strong certainty: 'must be / no doubt'.",
+    "explanation_uz": "Kuchli ishonch: «albatta / shubhasiz shunday».",
+    "examples": [
+      {"jp": "彼は忘れたに違いない。", "ru": "Он наверняка забыл.", "en": "He must have forgotten.", "uz": "U albatta unutgan."},
+      {"jp": "これは高いに違いない。", "ru": "Это наверняка дорого.", "en": "This must be expensive.", "uz": "Bu albatta qimmat."}
+    ]
+  },
+  {
+    "level": "N2",
+    "title": "〜からには",
+    "structure": "Обычная форма глагола + からには",
+    "explanation_ru": "«Раз уж / коль скоро»: подчёркивает решимость или естественное следствие.",
+    "explanation_en": "'Now that / since': emphasizes resolve or a natural consequence.",
+    "explanation_uz": "«Modomiki / raz»: qat'iyat yoki tabiiy natijani ta'kidlaydi.",
+    "examples": [
+      {"jp": "約束したからには守ります。", "ru": "Раз уж пообещал, сдержу слово.", "en": "Now that I've promised, I'll keep it.", "uz": "Va'da bergan ekanman, so'zimda turaman."},
+      {"jp": "やるからには全力を尽くす。", "ru": "Раз уж делаю, выложусь полностью.", "en": "Since I'm doing it, I'll give my all.", "uz": "Qiladigan bo'lsam, bor kuchimni beraman."}
+    ]
+  },
+  {
+    "level": "N1",
+    "title": "〜ずにはいられない",
+    "structure": "Отрицательная основа глагола + ずにはいられない",
+    "explanation_ru": "«Не могу удержаться, чтобы не»: непроизвольное действие или чувство.",
+    "explanation_en": "'Can't help but do': an involuntary action or feeling.",
+    "explanation_uz": "«Qilmasdan turolmayman»: ixtiyorsiz harakat yoki his.",
+    "examples": [
+      {"jp": "笑わずにはいられなかった。", "ru": "Я не мог не рассмеяться.", "en": "I couldn't help laughing.", "uz": "Kulmasdan turolmadim."},
+      {"jp": "心配せずにはいられない。", "ru": "Не могу не волноваться.", "en": "I can't help worrying.", "uz": "Xavotir olmasdan turolmayman."}
+    ]
+  },
+  {
+    "level": "N1",
+    "title": "〜をおいて",
+    "structure": "Существительное + をおいて (+ ない)",
+    "explanation_ru": "«Кроме / помимо»: подчёркивает, что нет иной альтернативы.",
+    "explanation_en": "'Other than / except for': stresses there is no other alternative.",
+    "explanation_uz": "«Bundan boshqa»: boshqa muqobil yo'qligini ta'kidlaydi.",
+    "examples": [
+      {"jp": "彼をおいて適任者はいない。", "ru": "Кроме него, подходящего человека нет.", "en": "There is no one suitable other than him.", "uz": "Undan boshqa mos odam yo'q."},
+      {"jp": "今をおいて機会はない。", "ru": "Другого случая, кроме нынешнего, не будет.", "en": "There is no chance other than now.", "uz": "Hozirdan boshqa imkoniyat yo'q."}
+    ]
+  },
+  {
+    "level": "N1",
+    "title": "〜んばかりに",
+    "structure": "Отрицательная основа глагола + んばかりに",
+    "explanation_ru": "«Словно вот-вот»: действие почти происходит, но образно.",
+    "explanation_en": "'As if about to': an action almost happens, used figuratively.",
+    "explanation_uz": "«Go'yo hozir qiladigandek»: harakat deyarli sodir bo'ladi, ko'chma ma'noda.",
+    "examples": [
+      {"jp": "泣かんばかりの顔をしていた。", "ru": "У него было лицо, словно он вот-вот заплачет.", "en": "He had a face as if he were about to cry.", "uz": "Uning yuzi go'yo hozir yig'laydigandek edi."},
+      {"jp": "あふれんばかりの笑顔だった。", "ru": "Это была улыбка, готовая перелиться через край.", "en": "It was an overflowing smile.", "uz": "Bu toshib ketguday tabassum edi."}
+    ]
+  }
+]
