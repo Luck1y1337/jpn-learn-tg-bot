@@ -18,3 +18,7 @@ class DonateStates(StatesGroup):
 
 class AdminStates(StatesGroup):
     waiting_broadcast = State()
+    waiting_ban_id = State()
+    waiting_unban_id = State()
+    waiting_user_search = State()
+    waiting_restore_file = State()

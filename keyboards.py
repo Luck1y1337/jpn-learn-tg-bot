@@ -238,3 +238,154 @@ def broadcast_confirm_keyboard(lang):
         ]
     ]
     return InlineKeyboardMarkup(inline_keyboard=buttons)
+
+
+# ---------------------------------------------------------------------------
+# Админ-панель (интерфейс только на русском — для владельца бота)
+# ---------------------------------------------------------------------------
+
+
+def admin_main_keyboard():
+    """Главное меню админ-панели."""
+    buttons = [
+        [
+            InlineKeyboardButton(
+                text="📊 Статистика", callback_data="admin:stats"
+            ),
+            InlineKeyboardButton(
+                text="👥 Пользователи", callback_data="admin:users:0"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="📢 Рассылка", callback_data="admin:broadcast"
+            ),
+            InlineKeyboardButton(
+                text="🔨 Бан / разбан", callback_data="admin:ban_menu"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="⚙️ Настройки", callback_data="admin:settings"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="✖️ Закрыть", callback_data="admin:close"
+            ),
+        ],
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
+
+
+def admin_back_keyboard(target):
+    """Кнопка «Назад» для админ-панели с указанием, куда возвращаться."""
+    buttons = [
+        [InlineKeyboardButton(text="« Назад", callback_data=target)]
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
+
+
+def admin_ban_menu_keyboard():
+    """Меню блокировки пользователей."""
+    buttons = [
+        [
+            InlineKeyboardButton(
+                text="🔨 Забанить", callback_data="admin:ban"
+            ),
+            InlineKeyboardButton(
+                text="♻️ Разбанить", callback_data="admin:unban"
+            ),
+        ],
+        [InlineKeyboardButton(text="« Назад", callback_data="admin:main")],
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
+
+
+def admin_settings_keyboard():
+    """Меню настроек админ-панели."""
+    buttons = [
+        [
+            InlineKeyboardButton(
+                text="💻 Система", callback_data="admin:sysinfo"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="🗄 Бэкап / восстановление",
+                callback_data="admin:backup_menu",
+            ),
+        ],
+        [InlineKeyboardButton(text="« Назад", callback_data="admin:main")],
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
+
+
+def admin_backup_keyboard():
+    """Меню бэкапа и восстановления базы."""
+    buttons = [
+        [
+            InlineKeyboardButton(
+                text="📦 Создать бэкап", callback_data="admin:backup_now"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="♻️ Восстановить", callback_data="admin:restore_start"
+            ),
+        ],
+        [InlineKeyboardButton(text="« Назад", callback_data="admin:settings")],
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
+
+
+def admin_restore_confirm_keyboard():
+    """Подтверждение восстановления базы из файла."""
+    buttons = [
+        [
+            InlineKeyboardButton(
+                text="✅ Да, восстановить",
+                callback_data="admin:restore_confirm",
+            ),
+            InlineKeyboardButton(
+                text="❌ Отмена", callback_data="admin:restore_cancel"
+            ),
+        ]
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
+
+
+def admin_users_keyboard(offset, page_size, has_next):
+    """Навигация по списку пользователей + поиск и возврат."""
+    nav_row = []
+    if offset > 0:
+        prev_offset = offset - page_size
+        if prev_offset < 0:
+            prev_offset = 0
+        nav_row.append(
+            InlineKeyboardButton(
+                text="⬅️", callback_data="admin:users:" + str(prev_offset)
+            )
+        )
+    if has_next:
+        next_offset = offset + page_size
+        nav_row.append(
+            InlineKeyboardButton(
+                text="➡️", callback_data="admin:users:" + str(next_offset)
+            )
+        )
+
+    buttons = []
+    if len(nav_row) > 0:
+        buttons.append(nav_row)
+    buttons.append(
+        [
+            InlineKeyboardButton(
+                text="🔍 Поиск", callback_data="admin:users_search"
+            )
+        ]
+    )
+    buttons.append(
+        [InlineKeyboardButton(text="« Назад", callback_data="admin:main")]
+    )
+    return InlineKeyboardMarkup(inline_keyboard=buttons)

@@ -23,8 +23,16 @@ async def init_db():
             "last_daily_date TEXT, "
             "streak INTEGER DEFAULT 0, "
             "last_study_date TEXT, "
+            "is_blocked INTEGER DEFAULT 0, "
             "created_at INTEGER)"
         )
+        try:
+            await db.execute(
+                "ALTER TABLE users ADD COLUMN is_blocked INTEGER DEFAULT 0"
+            )
+            await db.commit()
+        except Exception:
+            pass
         await db.execute(
             "CREATE TABLE IF NOT EXISTS kanji_cache ("
             "character TEXT PRIMARY KEY, "
@@ -243,6 +251,151 @@ async def get_all_user_ids():
         for row in rows:
             result.append(row[0])
         return result
+
+
+async def get_users_page(offset, limit):
+    """Возвращает страницу пользователей для админ-панели."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        db.row_factory = aiosqlite.Row
+        cursor = await db.execute(
+            "SELECT * FROM users ORDER BY created_at DESC LIMIT ? OFFSET ?",
+            (limit, offset),
+        )
+        rows = await cursor.fetchall()
+        return rows
+
+
+async def find_users(query):
+    """Ищет пользователей по user_id или части username."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        db.row_factory = aiosqlite.Row
+        clean_query = query.lstrip("@")
+        if clean_query.isdigit():
+            cursor = await db.execute(
+                "SELECT * FROM users WHERE user_id = ? LIMIT 20",
+                (int(clean_query),),
+            )
+        else:
+            like_value = "%" + clean_query + "%"
+            cursor = await db.execute(
+                "SELECT * FROM users WHERE username LIKE ? "
+                "ORDER BY created_at DESC LIMIT 20",
+                (like_value,),
+            )
+        rows = await cursor.fetchall()
+        return rows
+
+
+async def set_user_blocked(user_id, is_blocked):
+    """Устанавливает флаг блокировки пользователя (1 или 0)."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        await db.execute(
+            "UPDATE users SET is_blocked = ? WHERE user_id = ?",
+            (is_blocked, user_id),
+        )
+        await db.commit()
+
+
+async def is_user_blocked(user_id):
+    """Проверяет, заблокирован ли пользователь."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        cursor = await db.execute(
+            "SELECT is_blocked FROM users WHERE user_id = ?", (user_id,)
+        )
+        row = await cursor.fetchone()
+        if row is None:
+            return False
+        if row[0] == 1:
+            return True
+        return False
+
+
+async def count_blocked_users():
+    """Возвращает число заблокированных пользователей."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        cursor = await db.execute(
+            "SELECT COUNT(*) FROM users WHERE is_blocked = 1"
+        )
+        row = await cursor.fetchone()
+        return row[0]
+
+
+async def count_users_by_level():
+    """Возвращает распределение пользователей по уровням JLPT."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        cursor = await db.execute(
+            "SELECT level, COUNT(*) FROM users "
+            "WHERE level IS NOT NULL GROUP BY level"
+        )
+        rows = await cursor.fetchall()
+        result = {}
+        for row in rows:
+            result[row[0]] = row[1]
+        return result
+
+
+async def count_users_by_lang():
+    """Возвращает распределение пользователей по языкам интерфейса."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        cursor = await db.execute(
+            "SELECT lang, COUNT(*) FROM users "
+            "WHERE lang IS NOT NULL GROUP BY lang"
+        )
+        rows = await cursor.fetchall()
+        result = {}
+        for row in rows:
+            result[row[0]] = row[1]
+        return result
+
+
+async def count_all_srs():
+    """Возвращает общее число карточек SRS всех пользователей."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        cursor = await db.execute("SELECT COUNT(*) FROM srs_progress")
+        row = await cursor.fetchone()
+        return row[0]
+
+
+async def count_all_quizzes():
+    """Возвращает общее число пройденных квизов."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        cursor = await db.execute("SELECT COUNT(*) FROM quiz_results")
+        row = await cursor.fetchone()
+        return row[0]
+
+
+async def get_donations_summary():
+    """Возвращает (число донатов, сумму звёзд)."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        cursor = await db.execute(
+            "SELECT COUNT(*), COALESCE(SUM(amount), 0) FROM donations"
+        )
+        row = await cursor.fetchone()
+        return row[0], row[1]
+
+
+async def count_all_cached_words():
+    """Возвращает общее число слов в кэше."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        cursor = await db.execute("SELECT COUNT(*) FROM vocab_cache")
+        row = await cursor.fetchone()
+        return row[0]
+
+
+async def count_all_cached_kanji():
+    """Возвращает общее число кандзи в кэше."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        cursor = await db.execute("SELECT COUNT(*) FROM kanji_cache")
+        row = await cursor.fetchone()
+        return row[0]
+
+
+async def count_all_grammar():
+    """Возвращает общее число грамматических конструкций."""
+    async with aiosqlite.connect(DB_PATH) as db:
+        cursor = await db.execute("SELECT COUNT(*) FROM grammar_points")
+        row = await cursor.fetchone()
+        return row[0]
 
 
 # ---------------------------------------------------------------------------

@@ -5,7 +5,22 @@ from dotenv import load_dotenv
 load_dotenv()
 
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
-ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))
+
+# Администраторы. В ADMIN_ID можно указать один ID или несколько через запятую,
+# например: ADMIN_ID=111111111,222222222
+_admin_raw = os.getenv("ADMIN_ID", "0")
+ADMIN_IDS = []
+for _part in _admin_raw.split(","):
+    _part = _part.strip()
+    if _part.isdigit():
+        _admin_value = int(_part)
+        if _admin_value != 0:
+            ADMIN_IDS.append(_admin_value)
+
+if len(ADMIN_IDS) > 0:
+    ADMIN_ID = ADMIN_IDS[0]
+else:
+    ADMIN_ID = 0
 
 DB_PATH = os.getenv("DB_PATH", "bot.db")
 

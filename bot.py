@@ -9,6 +9,7 @@ from aiogram.enums import ParseMode
 import database
 import scheduler
 from config import BOT_TOKEN
+from middleware import BlockMiddleware
 from handlers import (
     admin,
     donate,
@@ -42,6 +43,10 @@ async def main():
         default=DefaultBotProperties(parse_mode=ParseMode.HTML),
     )
     dp = Dispatcher()
+
+    block_middleware = BlockMiddleware()
+    dp.message.middleware(block_middleware)
+    dp.callback_query.middleware(block_middleware)
 
     dp.include_router(start.router)
     dp.include_router(admin.router)
