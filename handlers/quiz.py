@@ -128,6 +128,11 @@ async def callback_answer(callback: CallbackQuery, state: FSMContext):
 
     index = data.get("q_index", 0)
     correct_count = data.get("correct", 0)
+    # Защита от гонки: при быстром двойном тапе индекс может уже выйти
+    # за границы — тихо игнорируем устаревший callback, а не падаем.
+    if index >= len(quiz):
+        await callback.answer()
+        return
     question = quiz[index]
 
     chosen = int(callback.data.split(":")[2])

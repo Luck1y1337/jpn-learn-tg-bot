@@ -27,12 +27,10 @@ async def translate_text(text, target_lang):
     """Асинхронная обёртка над переводом: не блокирует event loop.
 
     deep-translator работает через обычные HTTP-запросы (блокирующие),
-    поэтому запускаем его в отдельном потоке.
+    поэтому запускаем его в отдельном потоке через asyncio.to_thread
+    (не зависит от устаревшего get_event_loop()).
     """
-    loop = asyncio.get_event_loop()
-    result = await loop.run_in_executor(None, _translate_sync, text,
-                                        target_lang)
-    return result
+    return await asyncio.to_thread(_translate_sync, text, target_lang)
 
 
 async def translate_to_ru_uz(english_text):
