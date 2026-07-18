@@ -35,22 +35,58 @@ def level_keyboard():
 
 
 def main_menu_keyboard(lang):
-    """Постоянное reply-меню внизу экрана."""
+    """Постоянная reply-кнопка-лаунчер «☰ Меню», открывающая инлайн-хаб."""
+    buttons = [[KeyboardButton(text=get_text(lang, "btn_menu"))]]
+    return ReplyKeyboardMarkup(
+        keyboard=buttons, resize_keyboard=True, is_persistent=True
+    )
+
+
+def main_hub_keyboard(lang, is_admin=False):
+    """Инлайн-хаб со всеми разделами бота (все команды — кнопками)."""
     buttons = [
         [
-            KeyboardButton(text=get_text(lang, "btn_study")),
-            KeyboardButton(text=get_text(lang, "btn_quiz")),
+            InlineKeyboardButton(
+                text=get_text(lang, "btn_study"), callback_data="menu:study"
+            ),
+            InlineKeyboardButton(
+                text=get_text(lang, "btn_quiz"), callback_data="menu:quiz"
+            ),
         ],
         [
-            KeyboardButton(text=get_text(lang, "btn_grammar")),
-            KeyboardButton(text=get_text(lang, "btn_stats")),
+            InlineKeyboardButton(
+                text=get_text(lang, "btn_grammar"),
+                callback_data="menu:grammar",
+            ),
+            InlineKeyboardButton(
+                text=get_text(lang, "btn_stats"), callback_data="menu:stats"
+            ),
         ],
         [
-            KeyboardButton(text=get_text(lang, "btn_settings")),
-            KeyboardButton(text=get_text(lang, "btn_donate")),
+            InlineKeyboardButton(
+                text=get_text(lang, "btn_settings"),
+                callback_data="menu:settings",
+            ),
+            InlineKeyboardButton(
+                text=get_text(lang, "btn_donate"), callback_data="menu:donate"
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text=get_text(lang, "btn_set_language"),
+                callback_data="menu:language",
+            ),
         ],
     ]
-    return ReplyKeyboardMarkup(keyboard=buttons, resize_keyboard=True)
+    if is_admin:
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text="👑 Админ-панель", callback_data="menu:admin"
+                )
+            ]
+        )
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 
 def study_show_answer_keyboard(lang, item_id):

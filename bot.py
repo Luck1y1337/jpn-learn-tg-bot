@@ -8,12 +8,14 @@ from aiogram.enums import ParseMode
 
 import database
 import scheduler
+from bot_setup import setup_bot_profile
 from config import BOT_TOKEN
 from middleware import BlockMiddleware
 from handlers import (
     admin,
     donate,
     grammar,
+    menu,
     quiz,
     settings,
     start,
@@ -49,6 +51,7 @@ async def main():
     dp.callback_query.middleware(block_middleware)
 
     dp.include_router(start.router)
+    dp.include_router(menu.router)
     dp.include_router(admin.router)
     dp.include_router(study.router)
     dp.include_router(quiz.router)
@@ -60,6 +63,7 @@ async def main():
     scheduler.start_scheduler(bot)
 
     await bot.delete_webhook(drop_pending_updates=True)
+    await setup_bot_profile(bot)
     await dp.start_polling(bot)
 
 

@@ -73,24 +73,31 @@ def render_grammar(lang, row):
     return text
 
 
-@router.message(Command("grammar"))
-@router.message(F.text.in_(get_all_translations("btn_grammar")))
-async def start_grammar(message: Message):
-    """Показывает первую грамматическую конструкцию текущего уровня."""
-    user_id = message.from_user.id
+async def open_grammar(target, user_id):
+    """Показывает первую грамматическую конструкцию текущего уровня.
+
+    Общее ядро для команды и инлайн-хаба.
+    """
     lang = await resolve_lang(user_id)
     level = await resolve_level(user_id)
 
     rows = await database.get_grammar_by_level(level)
     if len(rows) == 0:
-        await message.answer(get_text(lang, "grammar_none"))
+        await target.answer(get_text(lang, "grammar_none"))
         return
 
     row = rows[0]
-    await message.answer(
+    await target.answer(
         render_grammar(lang, row),
         reply_markup=keyboards.grammar_nav_keyboard(lang, 0, len(rows)),
     )
+
+
+@router.message(Command("grammar"))
+@router.message(F.text.in_(get_all_translations("btn_grammar")))
+async def start_grammar(message: Message):
+    """Команда /grammar и кнопка меню — открывают грамматику."""
+    await open_grammar(message, message.from_user.id)
 
 
 @router.callback_query(F.data.startswith("grammar:nav:"))

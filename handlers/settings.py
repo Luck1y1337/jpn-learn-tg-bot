@@ -47,15 +47,19 @@ async def render_settings(user_id, lang):
     return text
 
 
-@router.message(Command("settings"))
-@router.message(F.text.in_(get_all_translations("btn_settings")))
-async def open_settings(message: Message, state: FSMContext):
-    """Показывает меню настроек."""
+async def open_settings(target, user_id, state):
+    """Показывает меню настроек. Общее ядро для команды и инлайн-хаба."""
     await state.clear()
-    user_id = message.from_user.id
     lang = await resolve_lang(user_id)
     text = await render_settings(user_id, lang)
-    await message.answer(text, reply_markup=keyboards.settings_keyboard(lang))
+    await target.answer(text, reply_markup=keyboards.settings_keyboard(lang))
+
+
+@router.message(Command("settings"))
+@router.message(F.text.in_(get_all_translations("btn_settings")))
+async def cmd_settings(message: Message, state: FSMContext):
+    """Команда /settings и кнопка меню — открывают настройки."""
+    await open_settings(message, message.from_user.id, state)
 
 
 @router.callback_query(F.data == "settings:lang")

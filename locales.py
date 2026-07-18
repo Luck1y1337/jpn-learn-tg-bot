@@ -20,6 +20,22 @@ TEXTS = {
             "Выбери действие в меню ниже 👇"
         ),
         "main_menu": "🏠 <b>Главное меню</b>",
+        "btn_menu": "☰ Меню",
+        "hub_header": (
+            "🏠 <b>Главное меню</b>\n"
+            "━━━━━━━━━━━━━━\n"
+            "Выбери раздел 👇"
+        ),
+        "bot_description": (
+            "🇯🇵 Бот для изучения японского по уровням JLPT (N5–N1).\n\n"
+            "Слова и кандзи, повторение по SRS, квизы и грамматика с примерами, "
+            "а также ежедневная порция нового материала. Интерфейс: RU / EN / UZ.\n\n"
+            "Нажми «Начать», чтобы выбрать язык и уровень."
+        ),
+        "bot_short_description": (
+            "Учи японский: слова, кандзи, SRS, квизы и грамматика. "
+            "JLPT N5–N1. RU/EN/UZ."
+        ),
         "btn_study": "📚 Учить",
         "btn_quiz": "📝 Квиз",
         "btn_grammar": "📖 Грамматика",
@@ -187,6 +203,22 @@ TEXTS = {
             "Pick an action from the menu below 👇"
         ),
         "main_menu": "🏠 <b>Main menu</b>",
+        "btn_menu": "☰ Menu",
+        "hub_header": (
+            "🏠 <b>Main menu</b>\n"
+            "━━━━━━━━━━━━━━\n"
+            "Pick a section 👇"
+        ),
+        "bot_description": (
+            "🇯🇵 A bot for learning Japanese by JLPT level (N5–N1).\n\n"
+            "Words and kanji, SRS review, quizzes and grammar with examples, "
+            "plus a daily dose of new material. Interface: RU / EN / UZ.\n\n"
+            "Press “Start” to choose your language and level."
+        ),
+        "bot_short_description": (
+            "Learn Japanese: words, kanji, SRS, quizzes and grammar. "
+            "JLPT N5–N1. RU/EN/UZ."
+        ),
         "btn_study": "📚 Study",
         "btn_quiz": "📝 Quiz",
         "btn_grammar": "📖 Grammar",
@@ -353,6 +385,22 @@ TEXTS = {
             "Quyidagi menyudan amalni tanlang 👇"
         ),
         "main_menu": "🏠 <b>Asosiy menyu</b>",
+        "btn_menu": "☰ Menyu",
+        "hub_header": (
+            "🏠 <b>Asosiy menyu</b>\n"
+            "━━━━━━━━━━━━━━\n"
+            "Bo'limni tanlang 👇"
+        ),
+        "bot_description": (
+            "🇯🇵 Yapon tilini JLPT darajalari bo'yicha o'rganish uchun bot (N5–N1).\n\n"
+            "So'z va kanjilar, SRS takrori, kvizlar va misolli grammatika, "
+            "hamda har kuni yangi material. Interfeys: RU / EN / UZ.\n\n"
+            "Til va darajani tanlash uchun «Boshlash» ni bosing."
+        ),
+        "bot_short_description": (
+            "Yapon tilini o'rganing: so'z, kanji, SRS, kviz va grammatika. "
+            "JLPT N5–N1. RU/EN/UZ."
+        ),
         "btn_study": "📚 O'rganish",
         "btn_quiz": "📝 Kviz",
         "btn_grammar": "📖 Grammatika",

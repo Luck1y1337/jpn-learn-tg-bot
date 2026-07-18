@@ -48,26 +48,33 @@ def render_back(lang, item):
     return text
 
 
-@router.message(Command("study"))
-@router.message(F.text.in_(get_all_translations("btn_study")))
-async def start_study(message: Message, state: FSMContext):
-    """Начинает сессию повторения SRS."""
+async def open_study(target, user_id, state):
+    """Начинает сессию повторения SRS. Общее ядро для команды и инлайн-хаба.
+
+    target — объект с методом .answer() (Message или callback.message).
+    """
     await state.clear()
-    user_id = message.from_user.id
     lang = await resolve_lang(user_id)
 
     today = today_str()
     due_items = await database.get_due_items(user_id, today, 1)
     if len(due_items) == 0:
-        await message.answer(get_text(lang, "study_no_due"))
+        await target.answer(get_text(lang, "study_no_due"))
         return
 
     await state.update_data(reviewed=0)
     item = due_items[0]
-    await message.answer(
+    await target.answer(
         render_front(lang, item),
         reply_markup=keyboards.study_show_answer_keyboard(lang, item["id"]),
     )
+
+
+@router.message(Command("study"))
+@router.message(F.text.in_(get_all_translations("btn_study")))
+async def start_study(message: Message, state: FSMContext):
+    """Команда /study и кнопка меню — открывают сессию повторения."""
+    await open_study(message, message.from_user.id, state)
 
 
 @router.callback_query(F.data.startswith("study:show:"))

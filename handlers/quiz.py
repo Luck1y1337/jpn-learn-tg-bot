@@ -88,31 +88,35 @@ async def send_question(message_or_callback_message, state, lang):
     )
 
 
-@router.message(Command("quiz"))
-@router.message(F.text.in_(get_all_translations("btn_quiz")))
-async def start_quiz(message: Message, state: FSMContext):
-    """Начинает квиз по словам текущего уровня."""
+async def open_quiz(target, user_id, state):
+    """Начинает квиз по словам текущего уровня. Общее ядро для команды и хаба."""
     await state.clear()
-    user_id = message.from_user.id
     lang = await resolve_lang(user_id)
     level = await resolve_level(user_id)
 
-    await message.answer(get_text(lang, "loading"))
+    await target.answer(get_text(lang, "loading"))
     await content_api.ensure_words_cached(level, POOL_SIZE)
 
     pool = await database.get_random_cached_words(level, POOL_SIZE)
     if len(pool) < QUIZ_OPTIONS:
-        await message.answer(get_text(lang, "quiz_not_enough"))
+        await target.answer(get_text(lang, "quiz_not_enough"))
         return
 
     questions = build_questions(lang, pool)
     if len(questions) == 0:
-        await message.answer(get_text(lang, "quiz_not_enough"))
+        await target.answer(get_text(lang, "quiz_not_enough"))
         return
 
     await state.update_data(quiz=questions, q_index=0, correct=0)
-    await message.answer(get_text(lang, "quiz_intro", total=len(questions)))
-    await send_question(message, state, lang)
+    await target.answer(get_text(lang, "quiz_intro", total=len(questions)))
+    await send_question(target, state, lang)
+
+
+@router.message(Command("quiz"))
+@router.message(F.text.in_(get_all_translations("btn_quiz")))
+async def start_quiz(message: Message, state: FSMContext):
+    """Команда /quiz и кнопка меню — запускают квиз."""
+    await open_quiz(message, message.from_user.id, state)
 
 
 @router.callback_query(F.data.startswith("quiz:ans:"))

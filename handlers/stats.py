@@ -10,11 +10,8 @@ from util import today_str
 router = Router()
 
 
-@router.message(Command("stats"))
-@router.message(F.text.in_(get_all_translations("btn_stats")))
-async def show_stats(message: Message):
-    """Показывает прогресс пользователя: карточки, стрик, квизы."""
-    user_id = message.from_user.id
+async def open_stats(target, user_id):
+    """Показывает прогресс пользователя. Общее ядро для команды и хаба."""
     lang = await resolve_lang(user_id)
     level = await resolve_level(user_id)
 
@@ -49,4 +46,11 @@ async def show_stats(message: Message):
         quiz_count=quiz_count,
         accuracy=accuracy,
     )
-    await message.answer(text)
+    await target.answer(text)
+
+
+@router.message(Command("stats"))
+@router.message(F.text.in_(get_all_translations("btn_stats")))
+async def show_stats(message: Message):
+    """Команда /stats и кнопка меню — показывают прогресс."""
+    await open_stats(message, message.from_user.id)
