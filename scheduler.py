@@ -5,6 +5,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 import content_api
 import database
 import srs
+from backup import perform_backup
 from config import DEFAULT_DAILY_COUNT, DEFAULT_LANG
 from locales import get_text
 from util import get_tz, now_hhmm, today_str
@@ -168,6 +169,15 @@ def start_scheduler(bot):
         args=[bot],
         max_instances=1,
         misfire_grace_time=30,
+    )
+    scheduler.add_job(
+        perform_backup,
+        "cron",
+        hour=3,
+        minute=0,
+        args=[bot],
+        max_instances=1,
+        misfire_grace_time=300,
     )
     scheduler.start()
     return scheduler
